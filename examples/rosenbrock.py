@@ -1,26 +1,17 @@
 
-from src.algorithms.plotter import Visualizer2D
+from src.utils.plotter import Visualizer2D
+from src.problems.minimization2d import RosenBrock2D
 from src.algorithms.pso import PSO
 
 import numpy as np
 
-X_MIN = Y_MIN = -6
-X_MAX = Y_MAX = 6
-
-def rosenbrock_fitness(X):
-    if X.ndim == 1:
-        return (1. - X[0]) ** 2 + ((X[1] - X[0] ** 2) ** 2) *100.
-    return (1 - X[:, 0]) ** 2 + ((X[:, 1] - X[:, 0] ** 2) ** 2) * 100.
-
 def main():
     print('rosenbrock example')
+    optimizer = PSO(number_of_particles=40, number_of_iterations=100)
+    problem = RosenBrock2D()
+    history = optimizer.optimize(problem)
 
-    plotter = Visualizer2D(X_MIN, X_MAX, Y_MIN, Y_MAX, rosenbrock_fitness)
-    
-
-    optimizer = PSO(2, np.array([[X_MIN, X_MAX], [Y_MIN, Y_MAX]]), rosenbrock_fitness)
-    history = optimizer.optimize()
-
+    plotter = Visualizer2D(problem)
     plotter.animate_2d_landscape(history)
 
 if __name__ == '__main__':
