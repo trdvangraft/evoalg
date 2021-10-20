@@ -1,5 +1,5 @@
-from src.algorithms.plotter import NeuralPlotter
 from src.algorithms.pso import PSO
+from src.utils.plotter import NeuralPlotter
 from src.problems.xor import XOR
 
 def main():

@@ -34,6 +34,9 @@ class PSO(Optimizer):
 
         return logger
     
+    def reset():
+        pass
+    
     def __initialize_particles(self, problem: Problem):
         initial_location = initial_pbest = np.random.uniform(
             problem.get_lowerbound(),

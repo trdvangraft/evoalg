@@ -1,9 +1,9 @@
 import numpy as np
 
 class Logger():
-    def __init__(self, number_of_iterations, number_of_particles, n_dim):
-        self.location_hist = np.full((number_of_iterations, number_of_particles, n_dim), np.Inf)
-        self.fitness_hist = np.full((number_of_iterations, number_of_particles), np.Inf)
+    def __init__(self, number_of_iterations, population_size, n_dim):
+        self.location_hist = np.full((number_of_iterations, population_size, n_dim), np.Inf)
+        self.fitness_hist = np.full((number_of_iterations, population_size), np.Inf)
         self.gbest_hist = np.full((number_of_iterations), np.Inf)
         self.gbest_location = np.full((number_of_iterations, n_dim), np.Inf)
     
